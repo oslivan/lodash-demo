@@ -17,6 +17,7 @@ export interface Data {
     id:   number;
     name: string;
   };
+  [propName: string]: any;
 }
 
 export interface RegionEntity {
