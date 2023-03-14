@@ -59,7 +59,7 @@ export interface BusinessAreaEntity {
 }
 
 // 按领域分割数据
-export function byBusinessArea(data: Array<Data>): Array<BusinessAreaEntity> {
+export function byBusinessArea(data: Array<{business_areas: string[]}>): Array<BusinessAreaEntity> {
   let gKey = "business_areas";
   return _.chain(data).map(gKey).flatten().groupBy()
           .map((arr, name) => ({

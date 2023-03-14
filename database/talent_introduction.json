@@ -1,3 +1,46 @@
 [
-
+  {
+      "id": 1,
+      "year": 2023,
+      "total": 123,
+      "region": "德清",
+      "business_areas": ["信息技术", "人工智能"],
+      "enterprise": {
+          "id": 1,
+          "name": "企业1"
+      }
+  },
+  {
+      "id": 2,
+      "year": 2023,
+      "total": 321,
+      "region": "德清",
+      "business_areas": ["信息技术", "大数据"],
+      "enterprise": {
+          "id": 1,
+          "name": "企业1"
+      }
+  },
+  {
+      "id": 3,
+      "year": 2023,
+      "total": 213,
+      "region": "宁波",
+      "business_areas": ["信息技术", "软件科技"],
+      "enterprise": {
+          "id": 2,
+          "name": "企业2"
+      }
+  },
+  {
+      "id": 4,
+      "year": 2023,
+      "total": 12,
+      "region": "上海",
+      "business_areas": ["软件科技", "大数据"],
+      "enterprise": {
+        "id": 3,
+        "name": "企业3"
+    }
+  }
 ]
