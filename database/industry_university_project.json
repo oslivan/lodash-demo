@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1,
+    "region": "德清",
+    "amount": 50.4,
+    "cooperation_unit_type": "College",
+    "cooperation_unit": {
+      "id": 1,
+      "name": "大学1"
+    },
+    "business_areas": ["信息技术", "人工智能"]
+  },
+  {
+    "id": 2,
+    "region": "宁波",
+    "amount": 21.3,
+    "cooperation_unit_type": "Enterprise",
+    "cooperation_unit": {
+      "id": 1,
+      "name": "企业1"
+    },
+    "business_areas": ["信息技术", "大数据"]
+  },
+  {
+    "id": 3,
+    "region": "德清",
+    "amount": 10.2,
+    "cooperation_unit_type": "Enterprise",
+    "cooperation_unit": {
+      "id": 2,
+      "name": "企业2"
+    },
+    "business_areas": ["信息技术", "软件科技"]
+  },
+  {
+    "id": 4,
+    "region": "上海",
+    "amount": 78.0,
+    "cooperation_unit_type": "College",
+    "cooperation_unit": {
+      "id": 2,
+      "name": "大学2"
+    },
+    "business_areas": ["软件科技", "大数据"]
+  },
+  {
+    "id": 5,
+    "region": "宁波",
+    "amount": 20.3,
+    "cooperation_unit_type": "Enterprise",
+    "cooperation_unit": {
+      "id": 1,
+      "name": "企业1"
+    },
+    "business_areas": []
+  }
+]
