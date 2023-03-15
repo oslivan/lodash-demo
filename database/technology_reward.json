@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "name": "测试奖励003",
+    "category": "省科学技术奖",
+    "technology": {
+        "id": 1156,
+        "name": "高性能动力电池包 PACK解决方案 "
+    },
+    "awarding_at": "2023-03-01",
+    "amount": 140.0,
+    "reason": "这是奖励理由123",
+    "recommend_unit": "杭州市科技局",
+    "region": "德清",
+    "occurred_at": "2023-03-01",
+    "business_areas": [],
+    "winner": {
+        "id": 136,
+        "name": "浙江大学"
+    },
+    "winner_type": "College"
+  },
+  {
+    "id": 2,
+    "name": "测试奖励003",
+    "category": "省科学技术奖",
+    "technology": {
+        "id": 1156,
+        "name": "高性能动力电池包 PACK解决方案 "
+    },
+    "awarding_at": "2023-03-01",
+    "amount": 140.0,
+    "reason": "这是奖励理由123",
+    "recommend_unit": "杭州市科技局",
+    "region": "德清",
+    "occurred_at": "2023-03-01",
+    "business_areas": [],
+    "winner": {
+        "id": 136,
+        "name": "浙江大学"
+    },
+    "winner_type": "College"
+  },
+  {
+    "id": 3,
+    "name": "测试奖励003",
+    "category": "省科学技术奖",
+    "technology": {
+        "id": 1156,
+        "name": "高性能动力电池包 PACK解决方案 "
+    },
+    "awarding_at": "2023-03-01",
+    "amount": 140.0,
+    "reason": "这是奖励理由123",
+    "recommend_unit": "杭州市科技局",
+    "region": "德清",
+    "occurred_at": "2023-03-01",
+    "business_areas": [],
+    "winner": {
+        "id": 136,
+        "name": "浙江大学"
+    },
+    "winner_type": "College"
+  }
+]
