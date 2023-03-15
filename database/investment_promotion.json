@@ -4,6 +4,7 @@
     "name": "213",
     "occurred_at": "2022-10-03",
     "region": "德清",
+    "amount": 10,
     "business_areas": [
         "新材料"
     ],
@@ -18,6 +19,7 @@
     "name": "213",
     "occurred_at": "2022-10-03",
     "region": "德清",
+    "amount": 10.2,
     "business_areas": [
         "新材料"
     ],
@@ -32,6 +34,7 @@
     "name": "213",
     "occurred_at": "2022-10-03",
     "region": "宁波",
+    "amount": 10.3,
     "business_areas": [
         "新材料"
     ],
@@ -40,5 +43,5 @@
         "name": "用户1"
     },
     "object_type": "User"
-  },
+  }
 ]

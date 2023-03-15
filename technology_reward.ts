@@ -2,7 +2,9 @@
 // 按区域 region
 // 按获奖对象 winner_type = Enterprise/College/User
 // 按项目领域 business_areas = []
-import * as _ from 'lodash';
+import _ from "lodash"
+import { byBusinessArea, BusinessAreaEntity, calcSum } from './industry_university_project'
+export { byBusinessArea, BusinessAreaEntity }
 
 export interface Data {
   id:             number;
@@ -41,11 +43,11 @@ export interface RegionEntity {
   winnerTotal: number;
 }
 
-function byRegion(data: Array<Data>): Array<RegionEntity> {
+export function byRegion(data: Array<Data>): Array<RegionEntity> {
   return _.chain(data).groupBy("region").map((arr, region) => ({
     region: region,
-    amount: _.sumBy(arr, "amount"),
-    total: _.size(arr),
+    amount: calcSum(arr, "amount"),
+    total: arr.length,
     cityTotal: _.chain(arr).filter(obj => obj.category == "市级奖励").size().value(),
     provinceTotal: _.chain(arr).filter(obj => obj.category == "省级奖励").size().value(),
     winnerTotal: _.chain(arr).map(obj => `${obj.winner_type}:${obj.winner.id}`).uniq().size().value()
@@ -63,11 +65,14 @@ export interface WinnerEntity {
   cityTotal: number;
 }
 
-function byWinnerEntity(data: Array<Data>): Array<WinnerEntity> {
-  return _.chain(data).groupBy(obj => obj.winner.name).map((arr, name) => ({
-    name: name,
-    amount: _.sumBy(arr, "amount"),
-    provinceTotal: _.chain(arr).filter(obj => obj.category == "省级奖励").size().value(),
-    cityTotal: _.chain(arr).filter(obj => obj.category == "市级奖励").size().value()
-  })).value()
+// 按获奖对象搞
+export function byWinnerEntity(data: Array<Data>): Array<WinnerEntity> {
+  return _.chain(data)
+          .groupBy(obj => `${obj.winner_type}:${obj.winner.id}`)
+          .map((arr) => ({
+            name: arr[0].winner.name,
+            amount: calcSum(arr, "amount"),
+            provinceTotal: _.chain(arr).filter(obj => obj.category == "省级奖励").size().value(),
+            cityTotal: _.chain(arr).filter(obj => obj.category == "市级奖励").size().value()
+          })).value()
 }

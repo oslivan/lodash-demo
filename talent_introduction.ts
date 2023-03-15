@@ -4,7 +4,7 @@
 // 按项目领域 business_areas = []
 
 import _ from "lodash"
-import { byBusinessArea, BusinessAreaEntity } from './industry_university_project'
+import { byBusinessArea, BusinessAreaEntity, calcSum } from './industry_university_project'
 export { byBusinessArea, BusinessAreaEntity }
 
 export interface Data {
@@ -29,7 +29,7 @@ export interface RegionEntity {
 export function byRegion(data: Array<Data>): Array<RegionEntity> {
   return _.chain(data).groupBy("region").map((arr, region) => ({
       region: region,
-      total: _.chain(arr).sumBy("total").value(),
+      total: calcSum(_.chain(arr).value(), "total"),
       enterprises_count: _.chain(arr).map(obj => obj.enterprise.id).uniq().size().value(),
     })).value()
 }
@@ -41,9 +41,10 @@ export interface EnterpriseEntity {
 }
 
 export function byEnterprise(data: Array<Data>): Array<EnterpriseEntity> {
-  return _.chain(data).groupBy(obj => obj.enterprise.id).map(arr => ({
-    id: arr[0].enterprise.id,
-    name: arr[0].enterprise.name,
-    total: _.sumBy(arr, "total")
-  })).value()
+  return _.chain(data)
+          .groupBy(obj => obj.enterprise.id).map(arr => ({
+            id: arr[0].enterprise.id,
+            name: arr[0].enterprise.name,
+            total: calcSum(arr, "total")
+          })).value()
 }

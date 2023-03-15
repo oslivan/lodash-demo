@@ -88,7 +88,7 @@ export function byCollege(data: Array<Data>): Array<CoorperationUnitEntity> {
           .map((arr, id) => ({
               id: _.toInteger(id),
               name: arr[0].cooperation_unit.name,
-              total: _.size(arr),
+              total: arr.length,
               amount: calcSum(arr, "amount")
           })).value()
 }
@@ -101,7 +101,7 @@ export function byEnterprise(data: Array<Data>): Array<CoorperationUnitEntity> {
           .map((arr, id) => ({
             id: _.toInteger(id),
             name: arr[0].cooperation_unit.name,
-            total: _.size(arr),
+            total: arr.length,
             amount: calcSum(arr, "amount")
           })).value()
 }
@@ -114,6 +114,6 @@ function calcUnitCnt(data: Array<Data>, unitType: string): number {
 }
 
 // 保留两位小数
-function calcSum(data: Array<Data>, key: string): number {
+export function calcSum(data: Array<{[propName:string]:any}>, key: string): number {
   return _.chain(data).sumBy(key).round(2).value();
 }
