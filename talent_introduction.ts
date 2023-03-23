@@ -11,12 +11,12 @@ export interface Data {
   id:         number;
   year:       number;
   total:      number;
-  region:     string;
+  region:     string | null;
   business_areas: Array<string>,
   enterprise: {
     id:   number;
     name: string;
-  };
+  } | null;
   [propName: string]: any;
 }
 
@@ -27,11 +27,13 @@ export interface RegionEntity {
 }
 
 export function byRegion(data: Array<Data>): Array<RegionEntity> {
-  return _.chain(data).groupBy("region").map((arr, region) => ({
-      region: region,
-      total: calcSum(_.chain(arr).value(), "total"),
-      enterprises_count: _.chain(arr).map(obj => obj.enterprise.id).uniq().size().value(),
-    })).value()
+  return _.chain(data)
+          .filter(obj => obj.region) // region 不为空
+          .groupBy("region").map((arr, region) => ({
+            region: region,
+            total: calcSum(_.chain(arr).value(), "total"),
+            enterprises_count: _.chain(arr).filter(obj => obj.enterprise).map(obj => obj.enterprise!.id).uniq().size().value(),
+          })).value()
 }
 
 export interface EnterpriseEntity {
@@ -42,9 +44,10 @@ export interface EnterpriseEntity {
 
 export function byEnterprise(data: Array<Data>): Array<EnterpriseEntity> {
   return _.chain(data)
-          .groupBy(obj => obj.enterprise.id).map(arr => ({
-            id: arr[0].enterprise.id,
-            name: arr[0].enterprise.name,
+          .filter(obj => obj.enterprise)
+          .groupBy(obj => obj.enterprise!.id).map(arr => ({
+            id: arr[0].enterprise!.id,
+            name: arr[0].enterprise!.name,
             total: calcSum(arr, "total")
           })).value()
 }

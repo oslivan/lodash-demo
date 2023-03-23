@@ -41,6 +41,22 @@
       "enterprise": {
         "id": 3,
         "name": "企业3"
-    }
+      }
+  },
+  {
+    "id": 5,
+    "year": 2023,
+    "total": 1,
+    "region": "上海",
+    "business_areas": ["软件科技", "大数据"],
+    "enterprise": null
+  },
+  {
+    "id": 6,
+    "year": 2023,
+    "total": 1,
+    "region": null,
+    "business_areas": [],
+    "enterprise": null
   }
 ]
